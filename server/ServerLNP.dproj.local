@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.097,C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerLNP.dproj=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.441,D:\Macevilo\new_LNP\lnp_new\server\ServerContainerUnit1.dfm=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.872,D:\Macevilo\new_LNP\lnp_new\server\ServerMethodsUnit1.pas=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.992,C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerMainForm.dfm=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.784,D:\Macevilo\new_LNP\lnp_new\server\ServerLNP.dproj=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerLNP.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.992,C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerMainForm.pas=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.872,D:\Macevilo\new_LNP\lnp_new\server\ServerMethodsUnit1.dfm=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.969,D:\Macevilo\new_LNP\lnp_new\server\ServerMainForm.pas=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerMainForm.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.986,=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.757,=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.969,D:\Macevilo\new_LNP\lnp_new\server\ServerMainForm.dfm=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerMainForm.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.441,D:\Macevilo\new_LNP\lnp_new\server\ServerContainerUnit1.pas=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.894,=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

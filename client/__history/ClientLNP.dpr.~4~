@@ -1,0 +1,22 @@
+program ClientLNP;
+
+uses
+  Vcl.Forms,
+  MainFormClient in 'MainFormClient.pas' {MainForm},
+  ClientDataModule in 'ClientDataModule.pas' {DataModule1: TDataModule},
+  Pechati in 'Pechati.pas' {FPechati},
+  AddPech in 'AddPech.pas' {FAddPech},
+  ChangePL in 'ChangePL.pas' {FChangePL};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TMainForm, MainForm);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TFPechati, FPechati);
+  Application.CreateForm(TFAddPech, FAddPech);
+  Application.CreateForm(TFChangePL, FChangePL);
+  Application.Run;
+end.

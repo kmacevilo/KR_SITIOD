@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.802,=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.848,=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.276,D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas=D:\Macevilo\new_LNP\lnp_new\client\AddPech.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.918,=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.593,=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.420,=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.712,=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.270,=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.112,=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.198,D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas=D:\Macevilo\new_LNP\lnp_new\client\EnterForm.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.053,D:\Macevilo\new_LNP\lnp_new\client\ClientDataModule.dfm=D:\Macevilo\new_LNP\lnp_new\client\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.453,D:\Macevilo\new_LNP\lnp_new\client\ClientLNP.dproj=D:\Macevilo\new_LNP\lnp_new\client\Client.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.053,D:\Macevilo\new_LNP\lnp_new\client\ClientDataModule.pas=D:\Macevilo\new_LNP\lnp_new\client\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.607,D:\Macevilo\new_LNP\lnp_new\client\AddInspector.pas=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.106,=D:\Macevilo\new_LNP\lnp_new\client\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.263,D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas=D:\Macevilo\new_LNP\lnp_new\client\AnnulirPL.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.294,D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas=D:\Macevilo\new_LNP\lnp_new\client\UnichtojPL.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.713,D:\Macevilo\new_LNP\lnp_new\client\Pechati.pas=D:\Macevilo\new_LNP\lnp_new\client\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.146,D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas=D:\Macevilo\new_LNP\lnp_new\client\ChangePL.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.713,D:\Macevilo\new_LNP\lnp_new\client\Pechati.dfm=D:\Macevilo\new_LNP\lnp_new\client\Unit3.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.438,C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\Client.dproj=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.818,D:\Macevilo\new_LNP\lnp_new\client\AddUserPL.pas=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.364,=D:\Macevilo\new_LNP\lnp_new\client\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.969,D:\Macevilo\new_LNP\lnp_new\client\MainFormClient.pas=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\MainFormClient.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.081,D:\Macevilo\new_LNP\lnp_new\client\UserPL.pas=D:\Macevilo\new_LNP\lnp_new\client\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.240,C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\MainFormClient.dfm=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.969,D:\Macevilo\new_LNP\lnp_new\client\MainFormClient.dfm=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\MainFormClient.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.170,=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.607,D:\Macevilo\new_LNP\lnp_new\client\AddInspector.dfm=D:\Macevilo\new_LNP\lnp_new\client\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.198,D:\Macevilo\new_LNP\lnp_new\client\Unit2.dfm=D:\Macevilo\new_LNP\lnp_new\client\EnterForm.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.146,D:\Macevilo\new_LNP\lnp_new\client\Unit2.dfm=D:\Macevilo\new_LNP\lnp_new\client\ChangePL.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.299,D:\Macevilo\new_LNP\lnp_new\client\Unit2.dfm=D:\Macevilo\new_LNP\lnp_new\client\AnnulirPL.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.294,D:\Macevilo\new_LNP\lnp_new\client\Unit2.dfm=D:\Macevilo\new_LNP\lnp_new\client\UnichtojPL.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.276,D:\Macevilo\new_LNP\lnp_new\client\Unit2.dfm=D:\Macevilo\new_LNP\lnp_new\client\AddPech.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.895,D:\Macevilo\new_LNP\lnp_new\client\Client.dproj=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\Client.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.818,D:\Macevilo\new_LNP\lnp_new\client\AddUserPL.dfm=D:\Macevilo\new_LNP\lnp_new\client\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.081,D:\Macevilo\new_LNP\lnp_new\client\UserPL.dfm=D:\Macevilo\new_LNP\lnp_new\client\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.240,C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\MainFormClient.pas=C:\Users\GaikovichMA\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>

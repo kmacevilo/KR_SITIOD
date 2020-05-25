@@ -1,0 +1,344 @@
+object FAddPech: TFAddPech
+  Left = 0
+  Top = 0
+  Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1087#1077#1095#1072#1090#1100
+  ClientHeight = 447
+  ClientWidth = 532
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnShow = FormShow
+  DesignSize = (
+    532
+    447)
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 208
+    Top = 16
+    Width = 140
+    Height = 21
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1087#1077#1095#1072#1090#1100' '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 80
+    Top = 56
+    Width = 61
+    Height = 19
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Caption = #1058#1072#1084#1086#1078#1085#1103
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 114
+    Top = 104
+    Width = 27
+    Height = 19
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Caption = #1042#1080#1076
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 114
+    Top = 144
+    Width = 27
+    Height = 19
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Caption = #1058#1080#1087
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 80
+    Top = 204
+    Width = 65
+    Height = 19
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Caption = #1057#1080#1084#1074#1086#1083#1099
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 277
+    Top = 204
+    Width = 44
+    Height = 19
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Caption = #1053#1086#1084#1077#1088
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 78
+    Top = 264
+    Width = 67
+    Height = 19
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Caption = #1052#1072#1090#1077#1088#1080#1072#1083
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 59
+    Top = 320
+    Width = 86
+    Height = 19
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Caption = #1044#1072#1090#1072' '#1074#1099#1076#1072#1095#1080
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label9: TLabel
+    Left = 337
+    Top = 176
+    Width = 11
+    Height = 19
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Caption = 'C'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 410
+    Top = 176
+    Width = 19
+    Height = 19
+    Alignment = taCenter
+    Anchors = [akTop, akRight]
+    Caption = #1055#1086
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object CBCustom: TRxDBLookupCombo
+    Left = 160
+    Top = 56
+    Width = 217
+    Height = 22
+    DropDownCount = 8
+    DisplayAllFields = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    LookupField = 'CODE'
+    LookupDisplay = 'CODE;NAME'
+    LookupSource = DataModule1.DSCustom
+    ParentFont = False
+    TabOrder = 1
+  end
+  object CBVidPL: TRxDBLookupCombo
+    Left = 160
+    Top = 104
+    Width = 217
+    Height = 22
+    DropDownCount = 8
+    DisplayAllFields = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    LookupField = 'CODE_VID'
+    LookupDisplay = 'CODE_VID;NAME'
+    LookupSource = DataModule1.DSVidPL
+    ParentFont = False
+    TabOrder = 2
+    OnClick = CBVidPLClick
+  end
+  object CBTipPL: TRxDBLookupCombo
+    Left = 160
+    Top = 144
+    Width = 217
+    Height = 22
+    DropDownCount = 8
+    DisplayAllFields = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    LookupField = 'CODE_TIP'
+    LookupDisplay = 'CODE_TIP;NAME'
+    LookupSource = DataModule1.DSTipPL
+    ParentFont = False
+    TabOrder = 3
+  end
+  object ESimbols: TEdit
+    Left = 160
+    Top = 201
+    Width = 90
+    Height = 27
+    Enabled = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+  end
+  object ENum1: TEdit
+    Left = 327
+    Top = 201
+    Width = 42
+    Height = 27
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 5
+  end
+  object CBMaterials: TRxDBLookupCombo
+    Left = 158
+    Top = 264
+    Width = 217
+    Height = 22
+    DropDownCount = 8
+    DisplayAllFields = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 7
+  end
+  object DTDateVid: TDateTimePicker
+    Left = 160
+    Top = 320
+    Width = 215
+    Height = 27
+    Date = 43881.446008761570000000
+    Time = 43881.446008761570000000
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
+  end
+  object ENum2: TEdit
+    Left = 402
+    Top = 201
+    Width = 47
+    Height = 27
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 6
+  end
+  object BtnAddPL: TBitBtn
+    Left = 144
+    Top = 384
+    Width = 97
+    Height = 31
+    Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    Kind = bkOK
+    NumGlyphs = 2
+    ParentFont = False
+    TabOrder = 9
+  end
+  object BtnCancel: TBitBtn
+    Left = 292
+    Top = 384
+    Width = 101
+    Height = 31
+    Caption = #1054#1090#1084#1077#1085#1072
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    Kind = bkNo
+    NumGlyphs = 2
+    ParentFont = False
+    TabOrder = 10
+  end
+  object BtnExit: TBitBtn
+    Left = 430
+    Top = 9
+    Width = 94
+    Height = 37
+    Caption = #1042#1099#1093#1086#1076
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    Kind = bkCancel
+    NumGlyphs = 2
+    ParentFont = False
+    TabOrder = 0
+  end
+end

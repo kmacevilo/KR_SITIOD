@@ -1,0 +1,155 @@
+unit AddPech;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls,
+  RxLookup;
+
+type
+  TFAddPech = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    CBCustom: TRxDBLookupCombo;
+    CBVidPL: TRxDBLookupCombo;
+    CBTipPL: TRxDBLookupCombo;
+    ESimbols: TEdit;
+    ENum1: TEdit;
+    CBMaterials: TRxDBLookupCombo;
+    DTDateVid: TDateTimePicker;
+    ENum2: TEdit;
+    Label9: TLabel;
+    Label10: TLabel;
+    BtnAddPL: TBitBtn;
+    BtnCancel: TBitBtn;
+    BtnExit: TBitBtn;
+    procedure FormShow(Sender: TObject);
+    procedure CBVidPLClick(Sender: TObject);
+    procedure BtnAddPLClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FAddPech: TFAddPech;
+
+implementation
+
+uses MainFormClient, ClientDataModule;
+
+{$R *.dfm}
+
+procedure TFAddPech.FormShow(Sender: TObject);
+begin
+  DataModule1.CDSetCustom.Open;
+  DataModule1.CDSetVidPL.open;
+  DataModule1.CDSetMaterials.Open;
+end;
+
+procedure TFAddPech.BtnAddPLClick(Sender: TObject);
+var num1, num2 : Integer;
+    number : string;
+begin
+  DataModule1.CDSetPlashka.Close;
+
+  num1 := strtoint(ENum1.Text);
+
+  if ENum2.Text <> '' then
+    num2 := strtoint(ENum2.Text)
+   else
+    num2 := num1;
+
+  number := Enum1.text;   // для проверки номера тросовой пломбы
+
+  while (num1 <= num2) do
+  begin
+    DataModule1.CDSetPlashka.CommandText := 'Insert into LNPNEW.SITK_PL_TEST ( CODE_TAM,'+
+                                  ' CODE_VID, CODE_TIP, LITERA, NUMBER_SITK, CODE_MATERIAL, D_V) values' +
+                                  '( :CODE_TAM, :CODE_VID, :CODE_TIP, :LITERA, :NUMBER_SITK, :CODE_MATERIAL, :D_V) ';//+
+    //ShowMessage(DataModule1.CDSetPlashka.CommandText);
+
+    DataModule1.CDSetPlashka.ParamByName('CODE_TAM').Value := CBCustom.KeyValue;
+    DataModule1.CDSetPlashka.ParamByName('CODE_VID').Value := CBVidPL.KeyValue;
+
+    if CBTipPL.KeyValue <> null then
+      DataModule1.CDSetPlashka.ParamByName('CODE_TIP').Value := CBTipPL.KeyValue
+    else
+    DataModule1.CDSetPlashka.ParamByName('CODE_TIP').Value := '';
+
+    DataModule1.CDSetPlashka.ParamByName('LITERA').Value := ESimbols.Text;
+
+
+    if (CBVidPL.KeyValue = '2') then
+    begin
+      case Length(inttostr(num1))  of
+        1: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value := '00'+inttostr(num1);
+        2: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value :=  '0'+inttostr(num1);
+        3: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value :=  inttostr(num1)
+
+      else
+        DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value :=  inttostr(num1);
+      end;
+    end
+    else
+    if (CBVidPL.KeyValue = '7') and (number[1] = '0' ) then
+    begin
+      case Length(inttostr(num1))  of
+        1: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value := '0000000'+inttostr(num1);
+        2: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value :=  '000000'+inttostr(num1);
+        3: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value := '00000'+inttostr(num1);
+        4: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value := '0000'+inttostr(num1);
+        5: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value := '000'+inttostr(num1);
+        6: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value := '00'+inttostr(num1);
+        7: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value := '0'+inttostr(num1);
+        8: DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value := inttostr(num1);
+      else
+        DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value := inttostr(num1);
+      end;
+    end
+    else
+      DataModule1.CDSetPlashka.ParamByName('NUMBER_SITK').Value := inttostr(num1);
+
+    DataModule1.CDSetPlashka.ParamByName('CODE_MATERIAL').Value := CBMaterials.KeyValue;
+    DataModule1.CDSetPlashka.ParamByName('D_V').Value := DTDateVid.DateTime;
+
+
+    DataModule1.CDSetPlashka.Execute;
+
+    num1 := num1 + 1;
+  end;
+    Application.MessageBox('Информация сохранена','Успешно',MB_OK + MB_ICONINFORMATION);
+
+
+end;
+
+procedure TFAddPech.CBVidPLClick(Sender: TObject);
+begin
+  if (CBVidPL.KeyValue = 3) or (CBVidPL.KeyValue = 4) then
+  begin
+    DataModule1.CDSetTipPL.Close;
+    DataModule1.CDSetTipPL.ParamByName('CODE_VID').Value := CBVidPL.KeyValue;
+    DataModule1.CDSetTipPL.Open;
+  end
+  else
+  if (CBVidPL.KeyValue = 5) then
+  begin
+    ESimbols.Enabled := True;
+    DataModule1.CDSetTipPL.Close;
+  end
+  else
+  begin
+    DataModule1.CDSetTipPL.Close;
+    ESimbols.Enabled := False;
+  end;
+end;
+
+end.

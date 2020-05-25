@@ -1,0 +1,103 @@
+unit Pechati;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FMX.StdCtrls, DBGridEhGrouping,
+  ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, EhLibVCL, GridsEh, DBAxisGridsEh,
+  DBGridEh, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls, RxLookup;
+
+type
+  TFPechati = class(TForm)
+    Panel1: TPanel;
+    CBCustom: TDBLookupComboBox;
+    ESimbols: TEdit;
+    BtnExit: TBitBtn;
+    BtnAllRows: TBitBtn;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    ENumber: TEdit;
+    DBGridEh1: TDBGridEh;
+    CBVidPL: TRxDBLookupCombo;
+    CBTipPL: TRxDBLookupCombo;
+    BtnFiltr: TBitBtn;
+    procedure FormShow(Sender: TObject);
+    procedure FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure Button1Click(Sender: TObject);
+    procedure CBVidPLExit(Sender: TObject);
+    procedure BtnFiltrClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FPechati: TFPechati;
+
+implementation
+
+uses ClientDataModule, MainFormClient;
+
+{$R *.dfm}
+
+procedure TFPechati.BtnFiltrClick(Sender: TObject);
+begin
+  // добавить код для обработки информации
+end;
+
+procedure TFPechati.Button1Click(Sender: TObject);
+begin
+  ShowMessage('vid '+ IntToStr(CBVidPL.KeyValue) );
+end;
+
+procedure TFPechati.CBVidPLExit(Sender: TObject);
+begin
+  if (CBVidPL.KeyValue = 3) or (CBVidPL.KeyValue = 4) then
+  begin
+    DataModule1.CDSetTipPL.Close;
+    DataModule1.CDSetTipPL.ParamByName('CODE_VID').Value := CBVidPL.KeyValue;
+    DataModule1.CDSetTipPL.Open;
+  end else
+  DataModule1.CDSetTipPL.Close;
+end;
+
+procedure TFPechati.FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+  if CBCustom.Focused then
+    CBCustom.Perform(WM_KEYDOWN, VK_DOWN, 0)
+  else inherited;
+end;
+
+procedure TFPechati.FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+   if CBCustom.Focused then
+    CBCustom.Perform(WM_KEYDOWN, VK_UP, 0)
+  else inherited;
+end;
+
+procedure TFPechati.FormShow(Sender: TObject);
+begin
+  DataModule1.CDSetPlashka.Close;
+  DataModule1.CDSetCustom.Close;
+  DataModule1.CDSetVidPL.Close;
+  //DataModule1.CDSetTipPL.Close;
+
+  DataModule1.CDSetPlashka.Open;
+  DataModule1.CDSetCustom.Open;
+  DataModule1.CDSetVidPL.open;
+  //DataModule1.CDSetTipPL.open;
+end;
+
+end.

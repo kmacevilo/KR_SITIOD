@@ -1,0 +1,59 @@
+unit AddUserPL;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls,
+  Vcl.ComCtrls, Vcl.ExtCtrls;
+
+type
+  TFAddUserPL = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    ENumDoc: TEdit;
+    DateDoc: TDateTimePicker;
+    DatePersonif: TDateTimePicker;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    CBFIOInsp: TDBLookupComboBox;
+    ELichNum: TEdit;
+    BtnSave: TBitBtn;
+    BtnClear: TBitBtn;
+    BtnExit: TBitBtn;
+    procedure FormShow(Sender: TObject);
+    procedure CBFIOInspClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FAddUserPL: TFAddUserPL;
+
+implementation
+
+USES ClientDataModule, ChangePL;
+
+{$R *.dfm}
+
+procedure TFAddUserPL.CBFIOInspClick(Sender: TObject);
+begin
+  ELichNum.Text := DataModule1.CDSetDoljLica.FieldByName('CODE').AsString;
+end;
+
+procedure TFAddUserPL.FormShow(Sender: TObject);
+var CUST : string;
+begin
+  CUST := DataModule1.CDSetPlashka.FieldByName('CODE_TAM').AsString;
+  DataModule1.CDSetDoljLica.Close;
+  DataModule1.CDSetDoljLica.ParamByName('CODE_TAM').AsString := CUST;
+  DataModule1.CDSetDoljLica.Open;
+end;
+
+end.

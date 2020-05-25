@@ -1,0 +1,132 @@
+object FUnichtojPL: TFUnichtojPL
+  Left = 0
+  Top = 0
+  Caption = #1059#1085#1080#1095#1090#1086#1078#1077#1085#1080#1077
+  ClientHeight = 329
+  ClientWidth = 445
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 445
+    Height = 329
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = 136
+    ExplicitTop = 104
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object Label1: TLabel
+      Left = 168
+      Top = 40
+      Width = 119
+      Height = 23
+      Alignment = taCenter
+      Caption = #1059#1085#1080#1095#1090#1086#1078#1077#1085#1080#1077
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 48
+      Top = 104
+      Width = 129
+      Height = 38
+      Alignment = taCenter
+      Caption = #1053#1086#1084#1077#1088' '#1076#1086#1082#1091#1084#1077#1085#1090#1072' '#1086#1073' '#1091#1085#1080#1095#1090#1086#1078#1077#1085#1080#1080
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      WordWrap = True
+    end
+    object Label3: TLabel
+      Left = 55
+      Top = 176
+      Width = 106
+      Height = 25
+      Alignment = taCenter
+      Caption = #1044#1072#1090#1072' '#1076#1086#1082#1091#1084#1077#1085#1090#1072
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      WordWrap = True
+    end
+    object BitBtn1: TBitBtn
+      Left = 104
+      Top = 248
+      Width = 113
+      Height = 49
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      Kind = bkOK
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 2
+    end
+    object BitBtn2: TBitBtn
+      Left = 248
+      Top = 248
+      Width = 113
+      Height = 49
+      Caption = #1054#1090#1084#1077#1085#1072
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      Kind = bkAbort
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 3
+    end
+    object DateTimePicker1: TDateTimePicker
+      Left = 200
+      Top = 176
+      Width = 186
+      Height = 27
+      Date = 43888.692958032410000000
+      Time = 43888.692958032410000000
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+    end
+    object Edit1: TEdit
+      Left = 200
+      Top = 115
+      Width = 186
+      Height = 27
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+end

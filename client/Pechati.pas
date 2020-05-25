@@ -1,0 +1,270 @@
+unit Pechati;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FMX.StdCtrls, DBGridEhGrouping,
+  ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, EhLibVCL, GridsEh, DBAxisGridsEh,
+  DBGridEh, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls, RxLookup,
+  Vcl.Grids, Vcl.DBGrids, RxDBCtrl;
+
+type
+  TFPechati = class(TForm)
+    Panel1: TPanel;
+    ESimbols: TEdit;
+    BtnExit: TBitBtn;
+    BtnAllRows: TBitBtn;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    ENumber: TEdit;
+    //MainGrid: TDBGridEh;
+    CBVidPL: TRxDBLookupCombo;
+    CBTipPL: TRxDBLookupCombo;
+    BtnFiltr: TBitBtn;
+    CBCustom: TRxDBLookupCombo;
+    MainGrid: TRxDBGrid;
+    Panel2: TPanel;
+    procedure FormShow(Sender: TObject);
+    procedure FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure Button1Click(Sender: TObject);
+    procedure BtnFiltrClick(Sender: TObject);
+    procedure CBVidPLClick(Sender: TObject);
+    procedure BtnAllRowsClick(Sender: TObject);
+    procedure BtnExitClick(Sender: TObject);
+    procedure MainGridDblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FPechati: TFPechati;
+
+implementation
+
+uses ClientDataModule, MainFormClient, ChangePL;
+
+{$R *.dfm}
+
+procedure TFPechati.BtnAllRowsClick(Sender: TObject);
+var SQL_text : TStringList;
+begin
+    DataModule1.CDSetPlashka.Close;
+    SQL_text := TStringList.Create;
+    SQL_text.Clear;
+
+    SQL_text.Add('Select sp.ID_STR, sp.CODE_TAM, sp.CODE_VID, sp.CODE_TIP, sp.LITERA, sp.NUMBER_SITK,');
+    SQL_text.Add('sp.CODE_MATERIAL, sp.D_V, sp.D_ON, sp.D_OFF, sp.ID_DOC_ON, sp.ID_DOC_OFF, sp.CODE_PRICH,');
+    SQL_text.Add('sp.ID_AKT_UNICHTOJ, sd.NUM_DOC from LNPNEW.SITK_PL sp LEFT JOIN SITK_DOC sd on sp.ID_AKT_UNICHTOJ=sd.ID_DOC') ;
+
+    DataModule1.CDSetPlashka.CommandText := SQL_text.Text;
+    DataModule1.CDSetPlashka.Open;
+    Label2.Caption:= IntToStr(MainGrid.DataSource.DataSet.RecordCount);
+end;
+
+procedure TFPechati.BtnExitClick(Sender: TObject);
+begin
+  FPechati.Close;
+end;
+
+procedure TFPechati.BtnFiltrClick(Sender: TObject);
+var WhereEnd : Boolean;
+    SQL_text : TStringList;
+    sql_texts: string;
+begin
+    DataModule1.CDSetPlashka.Close;
+    SQL_text := TStringList.Create;
+    SQL_text.Clear;
+
+    //ShowMessage(DataModule1.CDSetPlashka.CommandText);
+
+    WhereEnd := false;
+
+    SQL_text.Add('Select sp.ID_STR, sp.CODE_TAM, sp.CODE_VID, sp.CODE_TIP, sp.LITERA, sp.NUMBER_SITK,');
+    SQL_text.Add('sp.CODE_MATERIAL, sp.D_V, sp.D_ON, sp.D_OFF, sp.ID_DOC_ON, sp.ID_DOC_OFF, sp.CODE_PRICH,');
+    SQL_text.Add('sp.ID_AKT_UNICHTOJ, sd.NUM_DOC from LNPNEW.SITK_PL sp LEFT JOIN SITK_DOC sd on sp.ID_AKT_UNICHTOJ=sd.ID_DOC');
+
+     {if VidCombo.KeyValue <> 7 then  // выбираем печати, без тросовых пломб ибо их очень много
+     begin
+       DataModule1.DSetSITK_PLASHKA.SQL.Add('where sp.code_vid <> 7');
+       WhereAdded := true;
+     end;}
+
+    if CBCustom.KeyValue <> null then
+    begin
+      if not WhereEnd then
+      begin
+        SQL_text.Add('WHERE');
+        WhereEnd := true;
+      end
+      else
+      SQL_text.Add('AND');;
+      SQL_text.Add('CODE_TAM = '+ IntToStr(CBCustom.KeyValue));
+      //DataModule1.CDSetPlashka.Params.ParamByName('CODE_TAM').Value := CBCustom.KeyValue;
+    end;
+
+    if CBVidPL.KeyValue <> null then
+    begin
+      if not WhereEnd then
+      begin
+        SQL_text.Add('WHERE');
+        WhereEnd := true;
+      end
+      else
+      SQL_text.Add('AND');
+      SQL_text.Add('CODE_VID = '+ IntToStr(CBVIDPL.KeyValue));
+
+    end;
+
+    // быстрый поиск по Тип СИТК  (фильтр)
+    if CBTipPL.KeyValue <> null then
+    begin
+
+      if not WhereEnd then
+      begin
+        SQL_text.Add('WHERE');
+        WhereEnd := true;
+      end
+      else
+      SQL_text.Add('AND');
+      SQL_text.Add('CODE_TIP = '+ IntToStr(CBTipPL.KeyValue));
+
+    end;
+
+    if ENumber.Text <> '' then
+    begin
+      if not WhereEnd then
+      begin
+        SQL_text.Add('WHERE');
+        WhereEnd := true;
+      end
+      else
+      SQL_text.Add('AND');
+      SQL_text.Add('number_sitk in ('+ENumber.Text+')');
+
+    end;
+
+    if ESimbols.Text <> '' then
+    begin
+      if not WhereEnd then
+      begin
+        SQL_text.Add('WHERE');
+        WhereEnd := true;
+      end
+      else
+      SQL_text.Add('AND');
+      SQL_text.Add('LITERA = '+ ESimbols.Text);
+
+      ESimbols.Text := AnsiUpperCase(ESimbols.Text);
+
+      Maingrid.Enabled := true;
+
+    end;
+
+
+    DataModule1.CDSetPlashka.CommandText := SQL_text.Text;  ;
+
+
+    //ShowMessage(DataModule1.CDSetPlashka.CommandText);
+ try
+    DataModule1.CDSetPlashka.Open;
+    DataModule1.CDSetPlashka.EnableControls;
+    Label2.Caption:= IntToStr(MainGrid.DataSource.DataSet.RecordCount)  ;
+ except
+  on e:Exception do
+  begin
+    Application.MessageBox(PWideChar('Ошибка Повторите попытку '+#10+#13+'Код ошибки:' +#13#10+ 'Ошибка:'+E.Message),'Ошибка сохранения',MB_OK+MB_ICONERROR);
+  end;
+
+ end;
+end;
+
+procedure TFPechati.Button1Click(Sender: TObject);
+begin
+  ShowMessage('vid '+ IntToStr(CBVidPL.KeyValue) );
+end;
+
+procedure TFPechati.CBVidPLClick(Sender: TObject);
+begin
+if (CBVidPL.KeyValue = 3) or (CBVidPL.KeyValue = 4) then
+  begin
+    DataModule1.CDSetTipPL.Close;
+    DataModule1.CDSetTipPL.ParamByName('CODE_VID').Value := CBVidPL.KeyValue;
+    DataModule1.CDSetTipPL.Open;
+  end
+  else
+  if (CBVidPL.KeyValue = 5) then
+  begin
+    ESimbols.Enabled := True;
+    DataModule1.CDSetTipPL.Close;
+  end
+  else
+  begin
+    DataModule1.CDSetTipPL.Close;
+    ESimbols.Enabled := False;
+  end;
+end;
+
+procedure TFPechati.FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+  if (CBCustom.Focused) then
+     CBCustom.Perform(WM_KEYDOWN, VK_DOWN, 0)
+  else
+  if (CBVidPL.Focused) then
+    CBVidPL.Perform(WM_KEYDOWN, VK_DOWN, 0)
+  else
+  if (CBTipPL.Focused) then
+    CBTipPL.Perform(WM_KEYDOWN, VK_DOWN, 0)
+  else
+  inherited;
+end;
+
+procedure TFPechati.FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+  if (CBCustom.Focused) then
+     CBCustom.Perform(WM_KEYDOWN, VK_UP, 0)
+  else
+  if (CBVidPL.Focused) then
+    CBVidPL.Perform(WM_KEYDOWN, VK_UP, 0)
+  else
+  if (CBTipPL.Focused) then
+    CBTipPL.Perform(WM_KEYDOWN, VK_UP, 0)
+  else
+  inherited;
+end;
+
+procedure TFPechati.FormShow(Sender: TObject);
+begin
+  //DataModule1.CDSetPlashka.Close;
+  DataModule1.CDSetCustom.Close;
+  DataModule1.CDSetVidPL.Close;
+  //DataModule1.CDSetTipPL.Close;
+
+  //DataModule1.CDSetPlashka.Open;
+  DataModule1.CDSetCustom.Open;
+  DataModule1.CDSetVidPL.open;
+  //DataModule1.CDSetTipPL.open;
+
+
+  //Label2.Caption := DataModule1.CDSetPlashka.RecordCount.ToString;
+end;
+
+procedure TFPechati.MainGridDblClick(Sender: TObject);
+begin
+  Application.CreateForm(TFChangePL, FChangePL);
+  FChangePL.ShowModal;
+end;
+
+end.

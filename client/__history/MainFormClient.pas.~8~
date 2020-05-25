@@ -1,0 +1,73 @@
+unit MainFormClient;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics,Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls,
+  Vcl.DBCtrls, Vcl.Buttons, Vcl.Menus, Vcl.StdCtrls, Vcl.ImgList, Vcl.ComCtrls;
+
+type
+  TMainForm = class(TForm)
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+    ButPechat: TButton;
+    ButOtchet: TButton;
+    ButUsers: TButton;
+    ButSettings: TButton;
+    StatusBar1: TStatusBar;
+    Button1: TButton;
+    procedure FormShow(Sender: TObject);
+    procedure ButPechatClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  MainForm: TMainForm;
+
+implementation
+
+uses ClientDataModule, Pechati, AddPech, EnterForm;
+
+{$R *.dfm}
+
+procedure TMainForm.ButPechatClick(Sender: TObject);
+begin
+  Application.CreateForm(TFPechati, FPechati);
+  FPechati.Show;
+end;
+
+procedure TMainForm.Button1Click(Sender: TObject);
+begin
+  Application.CreateForm(TFAddPech, FAddPech);
+  FAddPech.Show;
+end;
+
+procedure TMainForm.FormShow(Sender: TObject);
+begin
+  if FEnterForm = nil then
+  FEnterForm := TFEnterForm.Create(Application);
+
+  if FEnterForm.ShowModal = mrOk then
+  begin
+    //FreeAndNil(FEnterForm);
+  end
+  ELSE
+  EXIT;
+  //FEnterForm.Close;
+ { if DataModule1.ConnectToBase then
+
+  else
+  begin
+    Application.MessageBox('Не удалось подключиться к серверу ', 'Ошибка авторизации',MB_OK + MB_ICONERROR);
+    Application.Terminate;
+  end;  }
+
+
+end;
+
+end.

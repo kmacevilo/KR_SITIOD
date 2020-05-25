@@ -1,0 +1,332 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 380
+  Width = 557
+  object SQLConnection1: TSQLConnection
+    DriverName = 'DataSnap'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverUnit=Data.DBXDataSnap'
+      'HostName=localhost'
+      'Port=211'
+      'CommunicationProtocol=tcp/ip'
+      'DatasnapContext=datasnap/'
+      
+        'DriverAssemblyLoader=Borland.Data.TDBXClientDriverLoader,Borland' +
+        '.Data.DbxClientDriver,Version=21.0.0.0,Culture=neutral,PublicKey' +
+        'Token=91d62ebb5b0d1b1b'
+      'Filters={}')
+    Connected = True
+    Left = 48
+    Top = 24
+  end
+  object DSProviderConnection1: TDSProviderConnection
+    ServerClassName = 'TServerMethods1'
+    Connected = True
+    SQLConnection = SQLConnection1
+    Left = 72
+    Top = 96
+  end
+  object CDSetPlashka: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'ID_STR'
+        Attributes = [faRequired]
+        DataType = ftFMTBcd
+        Precision = 32
+        Size = 8
+      end
+      item
+        Name = 'CODE_TAM'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 2
+      end
+      item
+        Name = 'CODE_VID'
+        DataType = ftFMTBcd
+        Precision = 1
+      end
+      item
+        Name = 'CODE_TIP'
+        DataType = ftFMTBcd
+        Precision = 3
+      end
+      item
+        Name = 'LITERA'
+        DataType = ftWideString
+        Size = 2
+      end
+      item
+        Name = 'NUMBER_SITK'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'CODE_MATERIAL'
+        DataType = ftFMTBcd
+        Precision = 2
+      end
+      item
+        Name = 'D_V'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'D_ON'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'D_OFF'
+        DataType = ftTimeStamp
+      end
+      item
+        Name = 'ID_DOC_ON'
+        DataType = ftFMTBcd
+        Precision = 15
+      end
+      item
+        Name = 'ID_DOC_OFF'
+        DataType = ftFMTBcd
+        Precision = 15
+      end
+      item
+        Name = 'CODE_PRICH'
+        DataType = ftFMTBcd
+        Precision = 2
+      end
+      item
+        Name = 'ID_AKT_UNICHTOJ'
+        DataType = ftFMTBcd
+        Precision = 15
+      end
+      item
+        Name = 'NUM_DOC'
+        DataType = ftWideString
+        Size = 15
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'DSPPlashka'
+    RemoteServer = DSProviderConnection1
+    StoreDefs = True
+    Left = 176
+    Top = 32
+    object CDSetPlashkaID_STR: TFMTBCDField
+      FieldName = 'ID_STR'
+      Required = True
+      Precision = 32
+    end
+    object CDSetPlashkaCODE_TAM: TWideStringField
+      FieldName = 'CODE_TAM'
+      OnGetText = CDSetPlashkaCODE_TAMGetText
+      FixedChar = True
+      Size = 2
+    end
+    object CDSetPlashkaD_OFF: TSQLTimeStampField
+      FieldName = 'D_OFF'
+    end
+    object CDSetPlashkaCODE_VID: TFMTBCDField
+      FieldName = 'CODE_VID'
+      Precision = 1
+      Size = 0
+    end
+    object CDSetPlashkaCODE_TIP: TFMTBCDField
+      FieldName = 'CODE_TIP'
+      Precision = 3
+      Size = 0
+    end
+    object CDSetPlashkaLITERA: TWideStringField
+      FieldName = 'LITERA'
+      Size = 2
+    end
+    object CDSetPlashkaNUMBER_SITK: TWideStringField
+      FieldName = 'NUMBER_SITK'
+      Size = 10
+    end
+    object CDSetPlashkaCODE_MATERIAL: TFMTBCDField
+      FieldName = 'CODE_MATERIAL'
+      Precision = 2
+      Size = 0
+    end
+    object CDSetPlashkaD_V: TSQLTimeStampField
+      FieldName = 'D_V'
+    end
+    object CDSetPlashkaD_ON: TSQLTimeStampField
+      FieldName = 'D_ON'
+    end
+    object CDSetPlashkaID_DOC_ON: TFMTBCDField
+      FieldName = 'ID_DOC_ON'
+      Precision = 15
+      Size = 0
+    end
+    object CDSetPlashkaID_DOC_OFF: TFMTBCDField
+      FieldName = 'ID_DOC_OFF'
+      Precision = 15
+      Size = 0
+    end
+    object CDSetPlashkaCODE_PRICH: TFMTBCDField
+      FieldName = 'CODE_PRICH'
+      Precision = 2
+      Size = 0
+    end
+    object CDSetPlashkaID_AKT_UNICHTOJ: TFMTBCDField
+      FieldName = 'ID_AKT_UNICHTOJ'
+      Precision = 15
+      Size = 0
+    end
+    object CDSetPlashkaNUM_DOC: TWideStringField
+      FieldName = 'NUM_DOC'
+      Size = 15
+    end
+  end
+  object DSPlashka: TDataSource
+    DataSet = CDSetPlashka
+    Left = 240
+    Top = 32
+  end
+  object CDSetCustom: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DSPCustom'
+    RemoteServer = DSProviderConnection1
+    Left = 176
+    Top = 96
+    object CDSetCustomID_TAM: TWideStringField
+      FieldName = 'ID_TAM'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object CDSetCustomCODE: TWideStringField
+      FieldName = 'CODE'
+      Required = True
+      FixedChar = True
+      Size = 2
+    end
+    object CDSetCustomD_ON: TSQLTimeStampField
+      FieldName = 'D_ON'
+      Required = True
+    end
+    object CDSetCustomD_OFF: TSQLTimeStampField
+      FieldName = 'D_OFF'
+      Required = True
+    end
+    object CDSetCustomNAME: TWideStringField
+      FieldName = 'NAME'
+      Required = True
+      Size = 50
+    end
+    object CDSetCustomADR: TWideStringField
+      FieldName = 'ADR'
+      Required = True
+      Size = 75
+    end
+    object CDSetCustomCODE_FIN: TWideStringField
+      FieldName = 'CODE_FIN'
+      FixedChar = True
+      Size = 3
+    end
+    object CDSetCustomID_OFF: TWideStringField
+      FieldName = 'ID_OFF'
+      FixedChar = True
+      Size = 14
+    end
+    object CDSetCustomFONE_OKD: TWideStringField
+      FieldName = 'FONE_OKD'
+      Size = 50
+    end
+    object CDSetCustomFAX_OKD: TWideStringField
+      FieldName = 'FAX_OKD'
+      Size = 50
+    end
+    object CDSetCustomID_OWNER: TWideStringField
+      FieldName = 'ID_OWNER'
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+  end
+  object DSCustom: TDataSource
+    DataSet = CDSetCustom
+    Left = 240
+    Top = 96
+  end
+  object CDSetVidPL: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DSPVidPL'
+    RemoteServer = DSProviderConnection1
+    Left = 176
+    Top = 160
+    object CDSetVidPLCODE_VID: TFMTBCDField
+      FieldName = 'CODE_VID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      Precision = 1
+      Size = 0
+    end
+    object CDSetVidPLNAME: TWideStringField
+      FieldName = 'NAME'
+      Required = True
+      Size = 255
+    end
+  end
+  object CDSetTipPL: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftWideString
+        Name = 'CODE_VID'
+        ParamType = ptInput
+      end>
+    ProviderName = 'DSPTipPL'
+    RemoteServer = DSProviderConnection1
+    Left = 176
+    Top = 216
+    object CDSetTipPLID: TFMTBCDField
+      FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      Precision = 10
+      Size = 0
+    end
+    object CDSetTipPLCODE_VID: TFMTBCDField
+      FieldName = 'CODE_VID'
+      Precision = 32
+    end
+    object CDSetTipPLCODE_TIP: TFMTBCDField
+      FieldName = 'CODE_TIP'
+      Precision = 3
+      Size = 0
+    end
+    object CDSetTipPLNAME: TWideStringField
+      FieldName = 'NAME'
+      Size = 255
+    end
+  end
+  object DSVidPL: TDataSource
+    DataSet = CDSetVidPL
+    Left = 240
+    Top = 168
+  end
+  object DSTipPL: TDataSource
+    DataSet = CDSetTipPL
+    Left = 240
+    Top = 224
+  end
+  object CDSetMaterials: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DSPMaterials'
+    RemoteServer = DSProviderConnection1
+    Left = 344
+    Top = 32
+  end
+  object DSMaterials: TDataSource
+    DataSet = CDSetMaterials
+    Left = 416
+    Top = 32
+  end
+end

@@ -1,0 +1,18 @@
+program Client;
+
+uses
+  Vcl.Forms,
+  MainFormClient in 'MainFormClient.pas' {Form2},
+  ClientDataModule in 'ClientDataModule.pas' {DataModule1: TDataModule},
+  Pechati in 'Pechati.pas' {FPechati};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TFPechati, FPechati);
+  Application.Run;
+end.

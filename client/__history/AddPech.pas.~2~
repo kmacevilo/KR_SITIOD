@@ -1,0 +1,77 @@
+unit AddPech;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls,
+  RxLookup;
+
+type
+  TFAddPech = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    CBCustom: TRxDBLookupCombo;
+    CBVidPL: TRxDBLookupCombo;
+    CBTipPL: TRxDBLookupCombo;
+    ESimbols: TEdit;
+    ENum1: TEdit;
+    CBMaterials: TRxDBLookupCombo;
+    DTDateVid: TDateTimePicker;
+    ENum2: TEdit;
+    Label9: TLabel;
+    Label10: TLabel;
+    BtnAddPL: TBitBtn;
+    BtnCancel: TBitBtn;
+    BtnExit: TBitBtn;
+    procedure FormShow(Sender: TObject);
+    procedure CBVidPLClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FAddPech: TFAddPech;
+
+implementation
+
+uses MainFormClient, ClientDataModule;
+
+{$R *.dfm}
+
+procedure TFAddPech.FormShow(Sender: TObject);
+begin
+  DataModule1.CDSetCustom.Open;
+  DataModule1.CDSetVidPL.open;
+end;
+
+procedure TFAddPech.CBVidPLClick(Sender: TObject);
+begin
+  if (CBVidPL.KeyValue = 3) or (CBVidPL.KeyValue = 4) then
+  begin
+    DataModule1.CDSetTipPL.Close;
+    DataModule1.CDSetTipPL.ParamByName('CODE_VID').Value := CBVidPL.KeyValue;
+    DataModule1.CDSetTipPL.Open;
+  end
+  else
+  if (CBVidPL.KeyValue = 5) then
+  begin
+    ESimbols.Enabled := True;
+    DataModule1.CDSetTipPL.Close;
+  end
+  else
+  begin
+    DataModule1.CDSetTipPL.Close;
+    ESimbols.Enabled := False;
+  end;
+end;
+
+end.

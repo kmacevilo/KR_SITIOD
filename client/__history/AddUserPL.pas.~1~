@@ -1,0 +1,43 @@
+unit AddUserPL;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls,
+  Vcl.ComCtrls, Vcl.ExtCtrls;
+
+type
+  TFAddUserPL = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Edit1: TEdit;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    Edit2: TEdit;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FAddUserPL: TFAddUserPL;
+
+implementation
+
+USES ClientDataModule, ChangePL;
+
+{$R *.dfm}
+
+end.

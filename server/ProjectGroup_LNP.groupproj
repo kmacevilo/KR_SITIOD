@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{36814B69-55EE-4E3A-9E95-9512F05B9813}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ServerLNP.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\client\ClientLNP.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ServerLNP">
+        <MSBuild Projects="ServerLNP.dproj"/>
+    </Target>
+    <Target Name="ServerLNP:Clean">
+        <MSBuild Projects="ServerLNP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ServerLNP:Make">
+        <MSBuild Projects="ServerLNP.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ClientLNP">
+        <MSBuild Projects="..\client\ClientLNP.dproj"/>
+    </Target>
+    <Target Name="ClientLNP:Clean">
+        <MSBuild Projects="..\client\ClientLNP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ClientLNP:Make">
+        <MSBuild Projects="..\client\ClientLNP.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ServerLNP;ClientLNP"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ServerLNP:Clean;ClientLNP:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ServerLNP:Make;ClientLNP:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
